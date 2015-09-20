@@ -20,7 +20,7 @@ diffDate = nowDate - fSeptemberDate
 
 pmProgress = str(round(2 + (diffDate.days / 365), 6)) + " ПМиИ"
 
-payload = {"chat_id": VK_CHAT_ID, "title": pmProgress, "access_token": VK_API_TOKEN + "b"}
+payload = {"chat_id": VK_CHAT_ID, "title": pmProgress, "access_token": VK_API_TOKEN}
 r = requests.get('https://api.vk.com/method/messages.editChat', params=payload, timeout=10)
 
 logging.debug("VK API return: " + r.text)
