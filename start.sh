@@ -2,4 +2,4 @@
 
 cd $(dirname $(readlink -e $0))
 
-python ./sliv.py
+python3 ./sliv.py
