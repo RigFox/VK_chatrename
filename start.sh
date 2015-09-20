@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-python src/sliv.py
+cd $(dirname $(readlink -e $0))
+
+python ./sliv.py
