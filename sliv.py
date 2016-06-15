@@ -6,10 +6,17 @@ import requests
 import datetime
 import logging
 
-logging.basicConfig(format=u'%(levelname)-8s [%(asctime)s] %(message)s',
-                    level=logging.DEBUG,
-                    encoding='utf-8',
-                    filename=u"log/log.log")
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+fh = logging.FileHandler('log/log.txt')
+fh.setLevel(logging.DEBUG)
+fh.setFormatter(formatter)
+logger.addHandler(fh)
+ch = logging.StreamHandler()
+ch.setLevel(logging.DEBUG)
+ch.setFormatter(formatter)
+logger.addHandler(ch)
 
 fSeptember = "01.09.2016"
 fSeptemberDate = datetime.datetime.strptime(fSeptember, "%d.%m.%Y")
@@ -18,9 +25,9 @@ nowDate = datetime.datetime.now()
 
 diffDate = nowDate - fSeptemberDate
 
-pmProgress = str(round(2 + (diffDate.days / 92), 6)) + " ПМиИ"
+pmProgress = str(round(3 + (diffDate.days / 92), 6)) + " ПМиИ"
 
 payload = {"chat_id": VK_CHAT_ID, "title": pmProgress, "access_token": VK_API_TOKEN}
 r = requests.get('https://api.vk.com/method/messages.editChat', params=payload, timeout=10)
 
-logging.debug("VK API return: " + r.text)
+logger.debug("VK API return: " + r.text)
