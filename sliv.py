@@ -11,14 +11,14 @@ logging.basicConfig(format=u'%(levelname)-8s [%(asctime)s] %(message)s',
                     encoding='utf-8',
                     filename=u"log/log.log")
 
-fSeptember = "01.09.2015"
+fSeptember = "01.09.2016"
 fSeptemberDate = datetime.datetime.strptime(fSeptember, "%d.%m.%Y")
 
 nowDate = datetime.datetime.now()
 
 diffDate = nowDate - fSeptemberDate
 
-pmProgress = str(round(2 + (diffDate.days / 365), 6)) + " ПМиИ"
+pmProgress = str(round(2 + (diffDate.days / 92), 6)) + " ПМиИ"
 
 payload = {"chat_id": VK_CHAT_ID, "title": pmProgress, "access_token": VK_API_TOKEN}
 r = requests.get('https://api.vk.com/method/messages.editChat', params=payload, timeout=10)
