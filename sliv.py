@@ -23,9 +23,9 @@ fSeptemberDate = datetime.datetime.strptime(fSeptember, "%d.%m.%Y")
 
 nowDate = datetime.datetime.now()
 
-diffDate = nowDate - fSeptemberDate
+diffDate = fSeptemberDate - nowDate
 
-pmProgress = str(round(3 + (diffDate.days / 92), 6)) + " ПМиИ. " + str(diffDate.days) + "дней до 1 сентября"
+pmProgress = str(round(2 + (92 / diffDate.days), 6)) + " ПМиИ. " + str(diffDate.days) + " дней до 1 сентября"
 
 payload = {"chat_id": VK_CHAT_ID, "title": pmProgress, "access_token": VK_API_TOKEN}
 r = requests.get('https://api.vk.com/method/messages.editChat', params=payload, timeout=10)
