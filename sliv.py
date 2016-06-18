@@ -33,7 +33,7 @@ elif (diffDate.days % 10 == 0) or (diffDate.days % 10 >= 5):
 elif (diffDate.days % 10 in [2,3,4]):
   dayStr = "дня"
 
-pmProgress = str(round(2 + ((92 - diffDate.days) / 92), 6)) + " ПМиИ. " + str(diffDate.days) + "  " + dayStr + " до 1 сентября"
+pmProgress = str(round(2 + ((92 - diffDate.days) / 92), 6)) + " ПМиИ. " + str(diffDate.days) + " " + dayStr + " до 1 сентября"
 
 payload = {"chat_id": VK_CHAT_ID, "title": pmProgress, "access_token": VK_API_TOKEN}
 r = requests.get('https://api.vk.com/method/messages.editChat', params=payload, timeout=10)
