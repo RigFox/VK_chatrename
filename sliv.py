@@ -18,7 +18,7 @@ ch.setLevel(logging.DEBUG)
 ch.setFormatter(formatter)
 logger.addHandler(ch)
 
-fSeptember = "01.09.2016"
+fSeptember = "02.09.2016"
 fSeptemberDate = datetime.datetime.strptime(fSeptember, "%d.%m.%Y")
 
 nowDate = datetime.datetime.now()
